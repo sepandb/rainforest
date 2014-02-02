@@ -1,4 +1,15 @@
-<%= form_for @product do |f| %>
+<%= form_for(@product) do |f| %>
+	<% if @product.errors.any?  %>
+		<div>
+		<h2><%= pluralize(@product.errors.count, "error") %> caused this product to fail!</h2>
+
+		<ul>
+			<% @product.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+		</div>
+	<% end  %>
 	<p>
 		<%= f.label :name %>
 		<%= f.text_field :name %>
