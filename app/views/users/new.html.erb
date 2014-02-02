@@ -1,0 +1,32 @@
+<h1>Sign up</h1>
+<%= form_for(@user) do |f| %>
+	<% if @user.errors.any?  %>
+
+		<h2>Form is invalid because of the following:</h2>
+		<ul>
+		<% @user.errors.each do |message| %>
+
+			<li><%= message %></li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+	<br>
+
+	<%= f.label :password %>
+	<%= f.password_field :password %>
+	<br>
+
+	<%= f.label :password_confirmation %>
+	<%= f.password_field :password_confirmation %>
+	<br>
+
+	<%= f.submit "Submit" %>
+
+
+<% end %>
+
+
+
