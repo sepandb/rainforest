@@ -16,5 +16,14 @@
 
 <%= yield %>
 
+	<p>
+	<% if current_user %>
+		Signed in as <%= current_user.email %>. <%= link_to("Log out", session_path("current"), :method => :delete) %>
+	<!-- the :method => :delete above refers to the HTTP request delete, NOT THE controller action destroy-->
+	<% else %>
+		<%= link_to("Login", new_session_path) %> <%= link_to("Sign up", new_user_path) %>
+	<% end %>
+	</p>
+
 </body>
 </html>
