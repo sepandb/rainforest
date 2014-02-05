@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_filter :ensure_logged_in, :only =>[:show]
 
   def index
   	@products = Product.all
@@ -6,6 +7,11 @@ class ProductsController < ApplicationController
 
   def show
   	@product = Product.find(params[:id])
+
+    if current_user
+     @review = @product.reviews.build #build generates a new review to be associated
+    end
+
   end
 
   def new

@@ -15,9 +15,12 @@
 
 	<h4>New Review</h4>
 
-	<%= form_for([@product, @review]) do |f| %>
+
+<%= form_for([@product, @review]) do |f| %>
+
 		<% if @review.errors.any?  %>
-			<h2><%= pluralize(@review.errors.count, "error") prevented this from being saved %> </h2>
+			<h2><%= pluralize(@review.errors.count, "error") %> prevented this from being saved </h2>
+
 			<ul>
 			<% @review.errors.full_messages.each do |error|  %>
 				<li> <%= error %> </li>
@@ -36,7 +39,7 @@
 
 <% else  %>
 
-	Please <%= link_to("login", new_session_path) to add a review %>
+	Please <%= link_to("login", new_session_path) %> to add a new review
 
 
 
