@@ -1,16 +1,23 @@
+
 <% if current_user  %>
 	<h3>Reviews</h3>
 
 	<p>Reviews for <%= @product.name %></p>
 
+		<% counter = 1 %>
+
 	<% @product.reviews.each do |review| %>
+		<% unless review.new_record? %>
 		<p>
-		<%= review.comment %>
+		<%= counter %>) <%= review.comment %>
 		<% if review.user != nil %>
-			This review was written by <%= review.user %><br>
+			This review was written by <%= review.user.name %><br>
 			on <%= review.created_at %>
 		<% end %>
+			<% counter = counter + 1  %>
+
 		</p>
+		<% end %>
 	<% end  %>
 
 	<h4>New Review</h4>

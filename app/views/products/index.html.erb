@@ -1,11 +1,7 @@
 <h1>All Products</h1>
-<%= link_to("Add New Product", new_product_path) %>
-<% @products.each do |product| %>
-	<li><%= product.formatted_price %></li>
-<% end %>
+<%= link_to("Add New Product", new_product_path) %><br />
 
-<ul>
-	<% @products.each do |x| %>
-	<li><%= link_to x.name, edit_product_path(x) %></li>
-	<% end %>
-</ul>
+
+<p>
+	<%= render "product_info" %>
+</p>

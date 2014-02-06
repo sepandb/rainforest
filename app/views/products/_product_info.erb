@@ -1,0 +1,28 @@
+<div class="left">
+<strong>Product </strong>
+<% @products.each do |product| %>
+	<li><%= link_to product.name, product_path(product) %></li>
+<% end %>
+</div>
+
+<div class="left">
+<strong>Description </strong>
+<% @products.each do |product| %>
+	<li><%=  product.description %></li>
+<% end %>
+</div>
+
+<div class="left">
+<strong>Price </strong>
+<% @products.each do |product| %>
+	<li>$<%=  product.formatted_price %></li>
+<% end %>
+</div>
+
+
+<div class="left">
+<strong>Actions </strong>
+<% @products.each do |product| %>
+			<li><%= link_to("Edit", edit_product_path(product))%>  <%= link_to("Delete", product_path(product), :method => :delete) %></li>
+	<% end %>
+</div>
